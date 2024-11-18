@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('titulo', 'Listar')
+@section('titulo', 'Listar Treinador')
 
 @section('conteudo')
 <main class="flex justify-center">
@@ -12,21 +12,16 @@
                     <tr>
                         <th scope="col" class="px-6 py-3">Id</th>
                         <th scope="col" class="px-6 py-3">Nome</th>
-                        <th scope="col" class="px-6 py-3">Tipo</th>
-                        <th scope="col" class="px-6 py-3 ">Pontos de Poder</th>
-                        <th scope="col" class="px-6 py-3 text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($pokemons as $pokemon)
+                    @foreach($coachs as $coach)
                     <tr class="bg-gray border-b dark:bg-gray-800 dark:border-gray-700 text-white">
-                        <td class="px-6 py-4 text-center">{{ $pokemon['id'] }}</td>
-                        <td class="px-6 py-4">{{ $pokemon['nome'] }}</td>
-                        <td class="px-6 py-4">{{ $pokemon['tipo'] }}</td>
-                        <td class="px-6 py-4 text-center">{{ $pokemon['pontos_de_poder'] }}</td>
+                        <td class="px-6 py-4 text-center">{{ $coach['id'] }}</td>
+                        <td class="px-6 py-4">{{ $coach['nome'] }}</td>
                         <td class="px-6 py-4 flex space-x-2">
-                            <a href="{{ url('pokemons/'.$pokemon->id.'/edit') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Editar</a>
-                            <form action="{{ url('pokemons/'.$pokemon->id) }}" method="POST" class="inline-block">
+                            <a href="{{ url('coachs/'.$coach->id.'/edit') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Editar</a>
+                            <form action="{{ url('coachs/'.$coach->id) }}" method="POST" class="inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Deletar</button>

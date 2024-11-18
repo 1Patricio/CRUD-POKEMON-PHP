@@ -1,30 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</head>
-<body>
+@extends('layouts.base')
 
-    <div class="container">
-        <h1>Cadastro de Pokemons</h1>
-        <form action="{{ url('pokemons') }}" method="POST">
-            @csrf            
-            <label for="nome" class="form-label">Pokemon:</label>
-            <input type="textarea" name="nome" placeholder="Insira o nome do pokemon" required class="form-control">
-            <br>
-            <label for="tipo" class="form-label">Tipo:</label>
-            <input type="text" name="tipo" name = "diretor" class="form-control">
-            <br>
-            <label for="pontos_de_poder" class="form-label">Pontos de Poder:</label>
-            <input type="number" name="pontos_de_poder" class="form-control">
-            <br>
-            <button type="submit" class="btn btn-primary">Criar Pokemon</button>
-        </form> 
+@section('titulo', 'Criar')
 
+@section('conteudo')
+<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-dark text-center">Cadastro de Pokémons</h1>
+<form action="{{ url('pokemons') }}" method="POST" class="max-w-sm mx-auto">
+    @csrf
+    <div class="mb-3">
+        <label for="nome" class="block mb-2 text-sm font-medium text-gray-900 dark:text-dark">Pokemon:</label>
+        <input type="textarea" id="nome" name="nome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cadastre seu Pokémon" required />
     </div>
-</body>
-</html>
+    <div class="mb-3">
+        <label for="tipo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-dark">Tipo:</label>
+        <input type="text" id="tipo" name="tipo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+    </div>
+    <div class="mb-3">
+        <label for="pontos_de_poder" class="block mb-2 text-sm font-medium text-gray-900 dark:text-dark">Pontos de Poder:</label>
+        <input type="number" name="pontos_de_poder" id="pontos_de_poder" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+    </div>
+    <div class="flex items-start mb-3">
+        <div class="flex items-center h-5">
+            <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
+        </div>
+        <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-600">Preparem-se para encrenca!</label>
+    </div>
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Criar Pokemon</button>
+</form>
+@endsection
