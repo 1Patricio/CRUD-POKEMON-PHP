@@ -5,13 +5,14 @@
 @section('conteudo')
 <main class="flex justify-center">
     <div class="w-full max-w-4xl p-3">
-        <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-dark text-center">Lista de Pokémons</h1>
+        <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-dark text-center">Lista de Treinadores</h1>
         <div class="relative overflow-x-auto bg-white shadow-md rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">Id</th>
                         <th scope="col" class="px-6 py-3">Nome</th>
+                        <th scope="col" class="px-6 py-3 text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,7 +20,7 @@
                     <tr class="bg-gray border-b dark:bg-gray-800 dark:border-gray-700 text-white">
                         <td class="px-6 py-4 text-center">{{ $coach['id'] }}</td>
                         <td class="px-6 py-4">{{ $coach['nome'] }}</td>
-                        <td class="px-6 py-4 flex space-x-2">
+                        <td class="px-6 py-4 flex space-x-2 ">
                             <a href="{{ url('coachs/'.$coach->id.'/edit') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Editar</a>
                             <form action="{{ url('coachs/'.$coach->id) }}" method="POST" class="inline-block">
                                 @csrf
@@ -29,6 +30,8 @@
                         </td>
                     </tr>
                     @endforeach
+                    <label for="coach" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Treinador</label>
+
                 </tbody>
             </table>
         </div>
