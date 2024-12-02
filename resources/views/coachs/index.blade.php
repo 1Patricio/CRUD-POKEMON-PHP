@@ -3,6 +3,7 @@
 @section('titulo', 'Listar Treinador')
 
 @section('conteudo')
+
 <main class="flex justify-center">
     <div class="w-full max-w-4xl p-3">
         <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-dark text-center">Lista de Treinadores</h1>
